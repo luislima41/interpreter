@@ -68,7 +68,7 @@ namespace Calc {
                 return new Token { Type = TokenType.NUM, Value = x };
             }
             if (Char.IsUpper(c.Value))
-            { //sinto cheiro de PRINT
+            { 
                 if (c == 'P')
                 {
                     var lookahead = Scan();
@@ -92,7 +92,7 @@ namespace Calc {
                 return new Token { Type = TokenType.UNK };
             }
             if (Char.IsLower(c.Value))
-            { //parece uma variavel
+            { 
                 var v = c.ToString();
                 c = Scan();
                 while (Char.IsLower(c.Value))
@@ -104,7 +104,7 @@ namespace Calc {
                 return new Token { Type = TokenType.VAR, Value = Table.AddSymbol(v) };
             }
 
-            return new Token { Type = TokenType.UNK }; // Adicionando retorno padrão
+            return new Token { Type = TokenType.UNK };
         }
     }
 

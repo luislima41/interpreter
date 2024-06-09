@@ -31,11 +31,11 @@ namespace Calc {
             {
                 Match(TokenType.PRINT);
                 var value = Expr();
-                return value; // Retornando o valor diretamente
+                return value;
             }
             else
             {
-                return Atrib(); // Corrigindo o retorno para chamar o método Atrib()
+                return Atrib();
             }
         }
 
@@ -68,11 +68,9 @@ namespace Calc {
         public double Factor() {
             double value = 0;
             if (_lookahead.Type == TokenType.NUM) {
-                value = double.Parse(_lookahead.Value.ToString()); // Convertendo para int
+                value = double.Parse(_lookahead.Value.ToString());
                 Match(TokenType.NUM);
             } else if (_lookahead.Type == TokenType.VAR) {
-                // Aqui você irá lidar com variáveis.
-                // Por enquanto, vamos apenas retornar 0 para demonstrar que a lógica precisa ser implementada.
                 var variableValue = GetValueOfVariable(_lookahead.Value.ToString());
                 value = variableValue;
                 Match(TokenType.VAR);
@@ -87,19 +85,15 @@ namespace Calc {
         }
 
         public double Atrib() {
-            string variableName = _lookahead.Value.ToString(); // Converter o valor para string
+            string variableName = _lookahead.Value.ToString(); 
             Match(TokenType.VAR);
             Match(TokenType.EQ);
             double value = Expr();
-            // Aqui você iria atribuir o valor 'value' à variável 'variableName' em sua lógica de interpretação.
-            // Por exemplo, você pode armazenar essas atribuições em algum lugar para usá-las posteriormente.
-            return value; // Retornando o valor diretamente por enquanto
+            return value; 
         }
-
-        // Função hipotética para obter o valor de uma variável
         private double GetValueOfVariable(string variableName) {
-            // Implemente esta função conforme necessário para sua lógica de interpretação
-            return 0; // Apenas um valor de exemplo, substitua conforme necessário
+
+            return 0; 
         }
     }
 }

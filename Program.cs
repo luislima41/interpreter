@@ -10,8 +10,8 @@ namespace Calc {
             do {
                 Console.Write(">");
                 command = Console.ReadLine();
-                double result = interpreter.Exec(command); // Armazenar o resultado em um tipo double
-                string output = result.ToString(); // Converter o resultado para string
+                double result = interpreter.Exec(command); 
+                string output = result.ToString(); 
                 Console.WriteLine(output);
             } while (!string.IsNullOrEmpty(command));
         }
